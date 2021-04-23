@@ -9,7 +9,15 @@ def solution(tickets):
             route[i[0]] = [i[1]]
     
     for i in route.keys():
-        route[i].sort()
-    print(route)
+        route[i].sort(reverse=True)
+        
+    start = ["ICN"]
 
-    return answer
+    while start:
+        stack = start[-1]
+        if stack not in route or len(route[stack]) == 0:
+            answer.append(start.pop())
+        else:
+            start.append(route[stack].pop())
+
+    return answer[::-1]
