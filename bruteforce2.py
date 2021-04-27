@@ -27,6 +27,8 @@ def solution(numbers):
             n += str(j)
         arr.add(int(n))
     
-    print(arr)
+    for i in arr:
+        if prime_number(i):
+            answer += 1
 
     return answer
