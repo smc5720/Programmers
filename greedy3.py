@@ -4,10 +4,14 @@ def solution(number, k):
     st = []
 
     for i in answer:
-        if not st:
-            st.append(i)
-        else:
-            if st[-1] < i:
-                st.pop()
-        
-    return answer
+        while st and st[-1] < i and cnt < k:
+            st.pop()
+            cnt += 1
+        st.append(i)
+
+    answer = ''.join(st)
+
+    if cnt != k:
+        answer = answer[:-(k - cnt)]
+
+    return str(int(answer))
