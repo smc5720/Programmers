@@ -13,10 +13,13 @@ def solution(n, costs):
             return get_parent(parent[num])
 
     def set_parent(a, b):
-        if a < b:
-            parent[b] = a
+        pa = get_parent(a)
+        pb = get_parent(b)
+        
+        if pa < pb:
+            parent[pb] = pa
         else:
-            parent[a] = b
+            parent[pa] = pb
     
     for i in costs:
         if get_parent(i[0]) != get_parent(i[1]):
