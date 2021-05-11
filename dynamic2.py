@@ -18,4 +18,4 @@ def solution(triangle):
                 if answer < triangle[i][j]:
                     answer = triangle[i][j]
 
-    return answer
+    return answer 
