@@ -11,7 +11,7 @@ def solution(n, computers):
     for i in range(0, n):
         if visited[i] == False:
             visited[i] = True
-            answer += 1
+            answer += 1 
             dfs(i)
 
     return answer
