@@ -1,27 +1,20 @@
-from collections import defaultdict
+from collections import deque
 
 def solution(n, edge):
-    answer = 0
-    v_dict = defaultdict(list)
-    visited = [False] * (n + 1)
-    visited[1] = True
-    queue = [1]
-    arr = []
+    routes = dict()
+    for a, b in edge:
+        routes.setdefault(a, []).append(b)
+        routes.setdefault(b, []).append(a)
     
-    for i in edge:
-        v_dict[i[0]].append(i[1])
-    
-    def bfs():
-        cnt = 0
-        while queue:
-            cnt += 1
-            tmp = queue.pop(0)
-            for i in v_dict[tmp]:
-                if visited[i] == False:
-                    visited[i] = True
-                    queue.append(i)
-                    arr.append(cnt)
-    bfs
+    q = deque([[1, 0]])
+    check = [-1] * (n + 1)
 
-    answer = arr.count(max(arr))
-    return answer
+    while q:
+        idx, depth = q.popleft()
+        check[idx] = depth
+        for i in routes[idx]:
+            if check[i] == -1:
+                check[i] = 0
+                q.append([i, depth+1])
+
+    return check.count(max(check))
