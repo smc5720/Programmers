@@ -1,5 +1,7 @@
 from collections import defaultdict
 
+# '#'이 붙은 음을 하나로 바꾸는 함수
+# (A# = a), (C# = c), (D# = d), (F# = f), (G# = g)
 def change(s):
     arr = []
     for i in range(len(s) - 1):
@@ -22,21 +24,13 @@ def change(s):
         arr.append(s[-1])
     return "".join(arr)
 
-
+# 시간의 길이를 재는 함수
 def time_length(start, end):
     start = int(start[:2]) * 60 + int(start[3:])
     end = int(end[:2]) * 60 + int(end[3:])
     return end - start
 
 
-def melody_length(s):
-    cnt = 0
-    for i in s:
-        if i != "#":
-            cnt += 1
-    return cnt
-
-# (A# = a), (C# = c), (D# = d), (F# = f), (G# = g)
 def solution(m, musicinfos):
     m = change(m)
     answer = '(None)'
@@ -51,10 +45,10 @@ def solution(m, musicinfos):
         len_t = time_length(i[0], i[1])
         n = len_t // len(i[3])
         t = len_t % len(i[3])
+        # 시간의 길이, 입력된 순서를 고려한다.
         music_dict[i[2]].append(len_t * (-1))
         music_dict[i[2]].append(idx)
         music_dict[i[2]].append(i[3] * n + i[3][:t])
-    #print(music_dict)
         
     for key, val in music_dict.items():
         if m in val[2]:
