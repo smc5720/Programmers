@@ -32,5 +32,3 @@ def solution(msg):
         answer.append(val)
 
     return answer
-
-solution("KAKAO")
