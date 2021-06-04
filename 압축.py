@@ -18,7 +18,7 @@ def solution(msg):
     msg.reverse()
     
     while msg:
-        tmp = msg[-1]
+        tmp = msg[-1] 
         val = 0
         # 사전에 등록하는 과정이다.
         while zip_dict[tmp] != 0:
