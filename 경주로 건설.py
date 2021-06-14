@@ -45,6 +45,6 @@ def solution(board):
                 if check in field and field[check] < next_p[SUM]:
                     continue
                 queue.append(next_p)
-                field[check] = next_p[SUM]            
+                field[check] = next_p[SUM]
 
     return min(answer)
