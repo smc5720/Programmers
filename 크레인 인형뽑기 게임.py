@@ -17,5 +17,5 @@ def solution(board, moves):
                 answer += 2
             else:
                 stack.append(cur_block)
-
+ 
     return answer
