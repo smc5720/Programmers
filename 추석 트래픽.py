@@ -15,7 +15,7 @@ def time_cal(time, sec):
         if ss >= 60:
             ss -= 60
             mm += 1
-        if mm >= 60:
+        if mm >= 60: 
             mm -= 60
             hh += 1
         hh = str(hh)
