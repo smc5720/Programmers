@@ -23,7 +23,7 @@ def restore_card(board, card_pos, card_kind):
 
 def ctrl_move(board, y, x, direc):
     left, right, up, down = 0, 1, 2, 3
-    y_dir = [0, 0, -1, 1]
+    y_dir = [0, 0, -1, 1] 
     x_dir = [-1, 1, 0, 0]
     ny, nx = y, x
     while True:
