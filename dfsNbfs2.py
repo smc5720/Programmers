@@ -13,5 +13,5 @@ def solution(n, computers):
             visited[i] = True
             answer += 1 
             dfs(i)
-
+ 
     return answer
