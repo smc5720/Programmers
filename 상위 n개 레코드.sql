@@ -1,0 +1,3 @@
+SELECT NAME
+FROM (SELECT NAME FROM ANIMAL_INS order by DATETIME)
+where rownum = 1;
