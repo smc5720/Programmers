@@ -13,5 +13,3 @@ def solution(numbers, target):
     dfs(0, 0)
 
     return answer
-
-print(solution([1, 1, 1, 1, 1], 3))
