@@ -8,7 +8,7 @@ class Solution {
 		int cnt = 1;
 		for (int i = 0; i < progresses.length; i++) {
 			// tmp에는 작업이 완료되는 시간이 저장된다.
-			int tmp = (100 - progresses[i]) / speeds[i];
+			int tmp = (100 - progresses[i]) / speeds[i]; 
 			
 			if (((100 - progresses[i]) % speeds[i]) > 0) {
 				tmp += 1;
