@@ -5,7 +5,7 @@ class Solution {
 
 	public int solution(int n, int[][] computers) {
 		HashSet<Integer> parentSet = new HashSet<Integer>();
-
+ 
 		for (int i = 0; i < n; i++) {
 			parent[i] = i;
 		}
