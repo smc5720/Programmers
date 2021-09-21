@@ -1,6 +1,6 @@
 import java.util.HashSet;
 
-class Solution {
+class Solution { 
 	int[] parent = new int[200];
 
 	public int solution(int n, int[][] computers) {
