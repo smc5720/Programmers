@@ -1,7 +1,7 @@
 import java.util.LinkedList;
 import java.util.Queue;
 
-class Solution {
+class Solution { 
 	public int solution(int bridge_length, int weight, int[] truck_weights) {
 		// 모든 트럭이 지나가는데 걸리는 최소 시간을 저장한다.
 		int answer = 0;
