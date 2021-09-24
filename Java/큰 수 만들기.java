@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-class Solution {
+class Solution { 
 	public String solution(String number, int k) {
 		StringBuilder answer = new StringBuilder();
 		
