@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
-class Solution {
+class Solution { 
 	char[] courseName = new char[11];
 
 	public String[] solution(String[] orders, int[] course) {
