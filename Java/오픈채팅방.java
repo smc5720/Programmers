@@ -12,7 +12,7 @@ class Solution {
 			if (word[0].equals("Leave")) {
 				// Leave로 들어온 경우
 				continue;
-			} else {
+			} else { 
 				// Enter, Change로 들어온 경우
 				map.put(word[1], word[2]);
 			}
