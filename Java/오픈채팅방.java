@@ -10,7 +10,7 @@ class Solution {
 		for (int i = 0; i < record.length; i++) {
 			String[] word = record[i].split(" ");
 			if (word[0].equals("Leave")) {
-				// Leave로 들어온 경우
+				// Leave로 들어온 경우 
 				continue;
 			} else { 
 				// Enter, Change로 들어온 경우
