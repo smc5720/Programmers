@@ -6,7 +6,7 @@ class Solution {
 		StringBuilder answer = new StringBuilder();
 		
 		// 뽑아야할 숫자의 개수
-		int size = number.length() - k;
+		int size = number.length() - k; 
 
 		int left = 0;
 		int right = number.length() - size;
