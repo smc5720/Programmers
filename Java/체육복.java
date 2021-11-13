@@ -12,7 +12,7 @@ class Solution {
 		for (int i = 0; i <= n + 1; i++) {
 			arr[i] = false;
 		}
-
+ 
 		for (int i = 0; i < reserve.length; i++) {
 			arr[reserve[i]] = true;
 		}
