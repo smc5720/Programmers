@@ -4,7 +4,6 @@ function solution(clothes) {
 
     for (var i in clothes) {
         let tmp = clothes[i][1];
-
         if (tmp in dict) {
             dict[tmp] += 1;
         } else {
