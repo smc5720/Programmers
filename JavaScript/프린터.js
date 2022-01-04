@@ -1,6 +1,7 @@
 function solution(priorities, location) {
     var answer = 0;
     let queue = [];
+    
     // 중요도를 따로 저장하고 현재 가장 높은 중요도가 얼마인지 확인한다.
     let rank = [];
 
