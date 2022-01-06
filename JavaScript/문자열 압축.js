@@ -16,7 +16,7 @@ function zip(s, i) {
   for (let j = 0; j < s.length; j += i) {
     let nowWord = s.substr(j, i);
 
-    if (compWord === nowWord) {
+    if (compWord === nowWord) { 
       count += 1;
       continue;
     }
