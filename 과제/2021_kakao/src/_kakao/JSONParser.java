@@ -78,7 +78,7 @@ public class JSONParser {
 
 	public JSONArray getCommandsJSONArray(ArrayList<Command> commandList) {
 		JSONArray commandArray = new JSONArray();
-		
+
 		for (Command command : commandList) {
 			commandArray.put(command.getJsonCommandData());
 		}

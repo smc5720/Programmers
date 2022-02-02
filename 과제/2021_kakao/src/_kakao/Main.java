@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.json.JSONObject;
-import org.json.JSONPointer;
 
 public class Main {
 	/*
@@ -170,7 +169,98 @@ public class Main {
 				// 각 트럭이랑 거리 계산해서 제일 가까운 애가 싣는다.
 				// 단, 아직 들어있는게 없다면 그 다음 애가 내린다.
 				// 아무도 없으면 아무도 내리지 않는다.
+
+				int truckId = 10000, truckLocationId = 0, truckDistance = 10000;
+				int truckGetLoadedBike = -1;
+
+				boolean[] trucksBoolean = new boolean[5];
+
+				// 실으러 간다.
+				for (Truck t : trucks) {
+					Pair p = hashMap.get(t.getLocation_id());
+					Pair many = hashMap.get(maxIndex);
+
+					int dist = getDistance(p.r, p.c, many.r, many.c);
+
+					if (dist < truckDistance) {
+						truckDistance = dist;
+						truckId = t.getId();
+						truckLocationId = t.getLocation_id();
+						truckGetLoadedBike = t.getLoaded_bikes_id();
+					}
+
+					// 같으면
+					else if (dist == truckDistance) {
+						if (truckGetLoadedBike > t.getLoaded_bikes_id()) {
+							truckId = t.getId();
+							truckLocationId = t.getLocation_id();
+							truckGetLoadedBike = t.getLoaded_bikes_id();
+						}
+					}
+				}
+
+				trucksBoolean[truckId] = true;
+				Pair p = hashMap.get(truckLocationId);
+				Pair many = hashMap.get(maxIndex);
+				order = getRoute(p.r, p.c, many.r, many.c);
+
+				while (order.size() < 10 && truckGetLoadedBike < 20 && max > 4) {
+					truckGetLoadedBike += 1;
+					max -= 1;
+					order.add(5);
+				}
+
+				commands.add(new Command(truckId, order));
+
+				truckDistance = 100000;
+				truckId = -1;
+
+				for (Truck t : trucks) {
+					p = hashMap.get(t.getLocation_id());
+					Pair few = hashMap.get(minIndex);
+
+					// 내리러 감
+					int dist = getDistance(p.r, p.c, few.r, few.c);
+
+					if (t.getLoaded_bikes_id() == 0 || trucksBoolean[t.getId()]) {
+						continue;
+					}
+
+					if (dist < truckDistance) {
+						truckDistance = dist;
+						truckId = t.getId();
+						truckLocationId = t.getLocation_id();
+						truckGetLoadedBike = t.getLoaded_bikes_id();
+					} else if (dist == truckDistance) {
+						if (truckGetLoadedBike < t.getLoaded_bikes_id()) {
+							truckId = t.getId();
+							truckLocationId = t.getLocation_id();
+							truckGetLoadedBike = t.getLoaded_bikes_id();
+						}
+					}
+				}
+
+				if (truckId != -1) {
+					p = hashMap.get(truckLocationId);
+					Pair few = hashMap.get(minIndex);
+					order2 = getRoute(p.r, p.c, few.r, few.c);
+
+					while (order2.size() < 10 && truckGetLoadedBike > 0 && min < 4) {
+						truckGetLoadedBike -= 1;
+						min += 1;
+						order2.add(6);
+					}
+
+					commands.add(new Command(truckId, order2));
+				}
+
+				// 제일 작은 애가 제일 많은 것을 먹으러 가고 제일 큰 애가 제일 적은 곳을 채우러 간다.
+				// 제일 작은 애
+
+				System.out.println(simulate(commands));
 			}
+
+			System.out.println(getScore());
 		}
 	}
 
