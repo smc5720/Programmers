@@ -13,4 +13,4 @@ function solution(num) {
   }
 
   return answer > 500 ? -1 : answer;
-}
+} 
